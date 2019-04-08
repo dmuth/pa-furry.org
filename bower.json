@@ -1,0 +1,20 @@
+{
+  "name": "pa-furry.org",
+  "authors": [
+    "Douglas Muth <dmuth@dmuth.org>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "skeleton": "^2.0.4"
+  }
+}
