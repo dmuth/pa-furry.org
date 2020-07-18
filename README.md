@@ -1,6 +1,8 @@
 
 # Pennsylvania Furries Website
 
+<img src="./img/logo-200px.jpg" align="right" />
+
 This is a GitHub repo tracking the documents for the website hosted at [http://www.pa-furry.org/](http://www.pa-furry.org/).
 
 
