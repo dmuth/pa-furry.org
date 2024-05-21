@@ -8,9 +8,8 @@ This is a GitHub repo tracking the documents for the website hosted at [http://w
 
 ## Development Instructions
 
-- `npm install http-server -g`
-- `http-server`
-- [http://127.0.0.1:8080/](http://127.0.0.1:8080/)
+- `python3 -m http.server`
+- [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
 - `./go.sh` - If you're me, this will sync the current directory to the AWS S3 bucket hosting the website.  If you're not me, don't do this. :-)
    - If you're me, you also may need to invalidate the cache in CloudFront.
 
