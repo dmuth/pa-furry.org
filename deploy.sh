@@ -19,7 +19,10 @@ function sync_to_s3() {
     echo "# Syncing to ${TARGET}..."
     echo "# "
     #aws s3 sync . ${TARGET} --exclude ".git/*" --exclude "*.swp" #--delete
-    aws s3 sync . ${TARGET} --exclude ".git/*" --exclude "*.swp" --acl public-read #--delete
+    #aws s3 sync . ${TARGET} --exclude ".git/*" --exclude "*.swp" --acl public-read #--delete
+    aws s3 sync . ${TARGET} --exclude ".git/*" \
+      --exclude "*.swp" --exclude .cloudfront-distribution-id \
+      --acl public-read #--delete
 
     #aws s3 rm ${TARGET}/.git/ --recursive #--dryrun
     #aws s3 rm ${TARGET}/*.swp #--dryrun
@@ -45,7 +48,7 @@ function invalidate_cloudflare_cache() {
     fi
 
     echo "# Found Cloudfront distribution ID: ${ID}"
-
+    echo "${ID}" > .cloudfront-distribution-id
 
     echo "# Invalidating cache... "
     aws cloudfront create-invalidation --distribution-id ${ID} --paths "/*"
@@ -57,7 +60,7 @@ function invalidate_cloudflare_cache() {
 
     echo "# "
     echo "# To keep track of invalidation status so you know when complete, run this command:"
-    echo "# ./get-cloudfront-cache-invalidations.sh ${ID} | head -n5"
+    echo "# ./get-cloudfront-cache-invalidations.sh | head -n5"
     echo "# "
 
 } # End of invalidate_cloudflare_cache()
